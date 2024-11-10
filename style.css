@@ -5,12 +5,12 @@
 }  
 
 @font-face {
-    font-family: "DatingHistorya Regular";
-    src: url('assets/fonts/DatingHistoria-Regular.woff2') format('truetype');
+    font-family: "DatingHistoria-Regular";
+    src: url('assets/fonts/DatingHistoria-Regular.ttf') format('truetype');
 }  
 
 body{
-    font-family: "DatingHistorya Regular",serif;
+    font-family: "DatingHistoria-Regular"!important;
     font-weight: 400;
     font-style: normal;
     
