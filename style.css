@@ -1,0 +1,12 @@
+/* @import url('assets/fonts/Vogue.ttf'); */
+@font-face {
+    font-family: "Vogue";
+    src: url('assets/fonts/Vogue.ttf') format('truetype');
+}  
+
+body{
+    font-family: "Arapey",serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
