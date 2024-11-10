@@ -4,8 +4,13 @@
     src: url('assets/fonts/Vogue.ttf') format('truetype');
 }  
 
+@font-face {
+    font-family: "DatingHistorya Regular";
+    src: url('assets/fonts/DatingHistoria-Regular.woff2') format('truetype');
+}  
+
 body{
-    font-family: "Arapey",serif;
+    font-family: "DatingHistorya Regular",serif;
     font-weight: 400;
     font-style: normal;
     
