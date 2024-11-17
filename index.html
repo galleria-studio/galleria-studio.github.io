@@ -43,7 +43,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-         
+
             text-align: center;
             color: #333;
         }
@@ -67,7 +67,8 @@
         .logo {
             font-size: 40px;
             /* font-weight: bold; */
-            color: #2c3e50;
+            /* color: #2c3e50; */
+            color: #FFF;
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
@@ -152,9 +153,12 @@
 <body>
 
     <div class="container position-relative">
-        <div class="logo">galleria | studio di architettura</div>
+        <div class="logo bg-dark rounded d-flex justify-content-center"><span class="align-self-center">galleria</span>
+            <span class="mx-1">|</span> <h6 class="align-self-center mt-2">studio di architettura</h6>
+        </div>
+
         <small>Sito in Costruzione</small>
-        <div id="frm" class="mt-2 position-relative h-100 m-auto w-100 bg-white m-auto d-none" style="z-index: 100;"> 
+        <div id="frm" class="mt-2 position-relative h-100 m-auto w-100 bg-white m-auto d-none" style="z-index: 100;">
             <form class="position-absolute w-100 mt-5 pt-5 bg-white"
                 action="https://mntcapi.altervista.org/galleria-studio.php" method="post">
                 <div class="form-group">
@@ -189,7 +193,7 @@
         function hideAndShow() {
             const main = document.getElementById('main');
             const frm = document.getElementById('frm');
-            if ([...main.classList].includes('d-block')) { 
+            if ([...main.classList].includes('d-block')) {
                 frm.classList.toggle('d-block');
                 main.classList.toggle('d-none');
                 main.classList.toggle('no-show');
