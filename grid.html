@@ -1,0 +1,18 @@
+<div class="container-fluid mt-2" x-data="imageGrid()" x-init="loadImages()">
+  <div class="row g-2 ">
+    <template x-for="item in gridPics">
+      <div class="col-md-3 col-sm-2 d-flex">
+        <div class="img-hover-wrapper" x-show="item.path">
+          <img style="aspect-ratio: 15/8;" :src="'docs/' + item.path" alt="Immagine esempio">
+          <div class="overlay">
+            <div class="overlay-top" x-text="item.project"></div>
+            <div class="overlay-bottom" x-text="item.location + ' ' + item.year"></div>
+          </div>
+        </div>
+        <div class="img-hover-wrapper w-100 bg-black" style="aspect-ratio: 15/8;" x-show="!item.path">
+
+        </div>
+      </div>
+    </template>
+  </div>
+</div>
