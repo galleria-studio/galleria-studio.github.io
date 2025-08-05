@@ -1,3 +1,10 @@
+const route = [
+  { label: 'Home', href: '#home', page: 'grid.html' },
+  { label: 'Progetti', href: '#progetti', page: 'project.html' },
+  { label: 'Team', href: '#team', page: 'team.html' },
+  { label: 'Contatti', href: '#contatti', page: 'contact.html' },
+  { label: 'Press', href: '#press', page: 'press.html' }
+];
 function imageGrid() {
   return {
     gridPics: [],
@@ -30,4 +37,59 @@ function hideAndShow() {
   main.classList.toggle('no-show');
   frm.classList.toggle('d-none');
 }
+function submitForm(event) {
+  event?.preventDefault();
+  const form = document.querySelector('form');
+  const contactBtn = document.querySelector('form .contact-btn');
+  const formData = new FormData(form);
 
+  contactBtn.disabled = true;
+  contactBtn.textContent = "Invio in corso...";
+
+  fetch(form.action, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        Toastify({
+          text: "Il modulo è stato inviato con successo!",
+          backgroundColor: "#000000",
+          duration: 3000, close: true,
+          gravity: "top", position: "center",
+        }).showToast();
+      } else {
+        alert("Si è verificato un errore. Riprova.");
+      }
+
+      contactBtn.disabled = false;
+      contactBtn.textContent = "Invia";
+      setTimeout(() => {
+        hideAndShow();
+      }, 300);
+    })
+    .catch(error => {
+      console.log(error)
+      alert("Errore di rete. Riprova più tardi.");
+
+      contactBtn.disabled = false;
+      contactBtn.textContent = "Invia";
+    });
+}
+
+function changeMosaic() {
+  const mosaic = document.querySelector('.mosaic');
+  if ([...mosaic.classList].find(x => x === 'col-md-3')) {
+
+    [...document.querySelectorAll('.mosaic')].forEach(x => {
+      x.classList.remove('col-md-3');
+      x.classList.add('col-md-4');
+    })
+    return;
+  }
+  [...document.querySelectorAll('.mosaic')].forEach(x => {
+    x.classList.remove('col-md-4');
+    x.classList.add('col-md-3');
+  })
+}

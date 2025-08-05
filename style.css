@@ -10,12 +10,17 @@
 }
 
 @font-face {
-  font-family: "Jupiteroid";
+  font-family: "Jupiteroid-bold";
   src: url('assets/fonts/Jupiteroid-Bold.ttf');
 }
 
+@font-face {
+  font-family: "Jupiteroid";
+  src: url('assets/fonts/Jupiteroid-Light.ttf');
+}
+
 body {
-  font-family: "DatingHistoria-Regular" !important;
+  font-family: "Jupiteroid" !important;
   font-weight: 400;
   font-style: normal;
 
@@ -25,6 +30,10 @@ body {
   body {
     height: 100vh !important;
   }
+}
+
+.logo {
+  font-family: "DatingHistoria-Regular";
 }
 
 .text-jup {
@@ -271,4 +280,44 @@ nav .nav-link {
 
 .active {
   text-decoration: underline !important;
+}
+
+a {
+  color: #000000 !important;
+  text-decoration: underline;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap !important;
+}
+
+a:hover {
+  color: #555555;
+  /* grigio scuro per hover */
+  text-decoration: none;
+}
+
+/* per contrasto su sfondo nero */
+.dark-background {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 2rem;
+}
+
+.dark-background a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.dark-background a:hover {
+  color: #cccccc;
+}
+
+.content-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.content-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

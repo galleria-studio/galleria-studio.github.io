@@ -1,7 +1,13 @@
 <div class="container-fluid mt-2" x-data="imageGrid()" x-init="loadImages()">
+  <button onclick="changeMosaic()" class="btn btn-outline-success"> Clicca bitch</button>
+  <p>Se clicchi il bottone cambia layout da 4 a 3, ovviamente OVVIAMENTE!!! Non considerare l'ultima riga.
+    <br> Fammi sapere quale ti aggrada, ne resterà solo uno
+    <br>Un forte abbraccio
+    <br>Dr. Gusto
+  </p>
   <div class="row g-2 ">
     <template x-for="item in gridPics">
-      <div class="col-md-3 col-sm-2 d-flex">
+      <div class="col-md-3 col-sm-2 d-flex mosaic">
         <div class="img-hover-wrapper" x-show="item.path">
           <img style="aspect-ratio: 15/8;" :src="'docs/' + item.path" alt="Immagine esempio">
           <div class="overlay">
@@ -16,3 +22,9 @@
     </template>
   </div>
 </div>
+
+<script>
+
+
+
+</script>

@@ -44,6 +44,8 @@
   <style>
 
   </style>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBObyrwVWp3H2dipsyO31gQRDKGdG6RCSM&callback=console.debug&libraries=maps,marker&v=beta"></script>
 </head>
 
 <body class="">
@@ -77,7 +79,7 @@
   </nav>
 
 
-  <div id="content" class="container-fluid">
+  <div id="content" class="container-fluid content-transition">
   </div>
   <footer id="footer" class="footer navbar-fixed-bottom mt-4">
     <div class="container-fluid d-flex bg-dark justify-content-between">
@@ -111,12 +113,7 @@
     function navbar() {
       return {
         activeHref: '#home',
-        menuItems: [
-          {label: 'Home', href: '#home', page: 'grid.html'},
-          {label: 'Progetti', href: '#progetti', page: 'project.html'},
-          {label: 'Team', href: '#team', page: 'team.html'},
-          {label: 'Contatti', href: '#contatti', page: 'contact.html'}
-        ],
+        menuItems: route,
         navigate(href, page) {
           this.activeHref = href;
           if (page) {
@@ -133,72 +130,31 @@
       element.classList.add('active');
     }
     function loadPage(page) {
-      fetch(page)
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('content').innerHTML = html;
-        })
-        .catch(err => {
-          document.getElementById('content').innerHTML = "<p>Errore nel caricamento della pagina.</p>";
-        });
+      const container = document.getElementById('content');
+      container.classList.remove('content-visible');
+      setTimeout(() => {
+        fetch(page)
+          .then(response => response.text())
+          .then(html => {
+            container.innerHTML = html;;
+            void container.offsetWidth;
+            container.classList.add('content-visible');
+          })
+          .catch(err => {
+            document.getElementById('content').innerHTML = "<p>Errore nel caricamento della pagina.</p>";
+            container.classList.add('content-visible');
+          });
+
+
+      }, 300);
     }
 
 
     document.addEventListener('DOMContentLoaded', function () {
-      loadPage('grid.html');
+      const currentRoute = route.find(x => x.href === location.hash);
+      //navigate(currentRoute.href, currentRoute.page);
+      loadPage(currentRoute?.page || 'grid.html');
       return;
-      const form = document.querySelector('form');
-      const contactBtn = document.querySelector('form .contact-btn');
-
-      // Quando il form viene inviato
-      form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Impedisce il comportamento di submit predefinito (nessun redirect)
-
-        // Creiamo un oggetto FormData per raccogliere i dati del form
-        const formData = new FormData(form);
-
-        // Aggiungiamo una semplice logica per disabilitare il bottone durante l'invio del modulo
-        contactBtn.disabled = true;
-        contactBtn.textContent = "Invio in corso...";
-
-        // Iniziamo una richiesta AJAX con Fetch API
-        fetch(form.action, {
-          method: 'POST', // Metodo di invio (POST)
-          body: formData // I dati del modulo
-        })
-          .then(response => response.json()) // Assumiamo che il server restituisca un JSON
-          .then(data => {
-            // Gestisci la risposta dal server (successo)
-            if (data.success) {
-              Toastify({
-                text: "Il modulo è stato inviato con successo!",
-                backgroundColor: "var(--success)",
-                duration: 3000,  // Durata della notifica in millisecondi
-                close: true,     // Aggiungi un bottone per chiudere la notifica
-                gravity: "top",  // Posizione verticale
-                position: "center",   // Posizione orizzontale (right, center, left)
-              }).showToast();
-            } else {
-              alert("Si è verificato un errore. Riprova.");
-            }
-
-            // Ripristina il bottone e il testo
-            contactBtn.disabled = false;
-            contactBtn.textContent = "Invia";
-            setTimeout(() => {
-              hideAndShow();
-            }, 300);
-          })
-          .catch(error => {
-            console.log(error)
-            // Gestisci eventuali errori di rete
-            alert("Errore di rete. Riprova più tardi.");
-
-            // Ripristina il bottone e il testo
-            contactBtn.disabled = false;
-            contactBtn.textContent = "Invia";
-          });
-      });
 
 
     });
