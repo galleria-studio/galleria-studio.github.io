@@ -88,12 +88,13 @@
       </button>
 
       <!-- Menu a destra -->
-      <div x-data="navbar()" class="collapse navbar-collapse justify-content-end text-black text-jup" id="navbarMenu">
+      <div x-ref="navbarMenu" x-data="navbar()" class="collapse navbar-collapse justify-content-end text-black text-jup"
+        id="navbarMenu">
         <ul class="navbar-nav" style="font-size: 18px;">
           <template x-for="item in menuItems" :key="item.href">
             <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link text-black fw-500"
-                :class="{'active': activeHref === item.href}" @click.prevent="navigate(item.href, item.page)"
+              <a href="javascript:void(0)" class="nav-link text-black fw-500" :id="item.label"
+                :class="{'active': activeHref === item.href}" @click.prevent="navigate(item.href, item.page,item.label)"
                 x-text="item.label"></a>
             </li>
           </template>
@@ -138,11 +139,12 @@
       return {
         activeHref: window.location.pathname || '/',
         menuItems: route,
-        navigate(href, page) {
+        navigate(href, page, label) {
+          sessionStorage.redirect = href;
           this.activeHref = href;
 
           history.pushState({ href, page }, '', href);
-
+          setActive(document.querySelector(`#${label}`));
           if (page) {
             loadPage(page);
           }
@@ -176,9 +178,17 @@
     document.addEventListener('DOMContentLoaded', () => {
       const path = sessionStorage.redirect;
       const routeItem = route.find(r => r.href === path);
-      const page = routeItem ? routeItem.page : 'grid.html'; // fallback: Home
+      let page = 'grid.html'; // fallback: Home
+      if (routeItem) {
+        page = routeItem.page;
+        history.pushState({ href: routeItem.href, page: routeItem.page }, '', routeItem.href);
+        setActive(document.querySelector(`#${routeItem.label}`));
+      }
+      else
+        delete sessionStorage.redirect;
 
       loadPage(page);
+
     });
   </script>
 
