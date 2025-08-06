@@ -16,6 +16,16 @@ function imageGrid() {
   }
 }
 
+function projects() {
+  return {
+    projects: [],
+    async loadProjects() {
+      const response = await fetch("project.json")
+      this.projects = await response.json();
+    }
+  }
+}
+
 function fillTo18(arr, filler = { visible: false }) {
   const filled = [...arr];
   while (filled.length < 16) {

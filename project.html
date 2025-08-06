@@ -4,43 +4,25 @@
   Un forte abbraccio <br>
   Dr. Gusto
 </p>
-<section class="project-list-enhanced">
+<section class="project-list-enhanced"
+x-data="projects()"
+x-init="loadProjects()"
+>
+<template x-for="item in projects">
   <div class="year-block">
-    <h3>2025</h3>
+    <h3 x-text="item.year"></h3>
+    <template x-for="project in item.projects">
     <div class="project">
-      <img src="docs/cunda/Il Maltese_Furore107.jpg" alt="Residenza privata – Milano">
+      <img :src="'docs/' + project.image" :alt="project.title">
       <div class="info">
-        <h4>Residenza privata – Milano</h4>
-        <p>Progetto residenziale su misura nel cuore della città, eleganza e luce naturale protagoniste.</p>
+        <h4 x-text="project.title"></h4>
+        <p x-text="project.description"></p>
       </div>
     </div>
-    <div class="project">
-      <img src="docs/cunda/Il Maltese_Furore112.jpg" alt="Centro culturale – Bologna">
-      <div class="info">
-        <h4>Centro culturale – Bologna</h4>
-        <p>Spazio pubblico multifunzionale, progettato per connessione e flusso continuo.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="year-block">
-    <h3>2024</h3>
-    <div class="project">
-      <img src="docs/bioma/1.jpg" alt="Ristrutturazione villa storica – Firenze">
-      <div class="info">
-        <h4>Ristrutturazione villa storica – Firenze</h4>
-        <p>Intervento calibrato tra memoria e innovazione architettonica.</p>
-      </div>
-    </div>
-    <div class="project">
-      <img src="docs/bioma/2.jpg" alt="Uffici direzionali – Torino">
-      <div class="info">
-        <h4>Uffici direzionali – Torino</h4>
-        <p>Layout operativo flessibile, progettazione full BIM e attenzione al benessere lavorativo.</p>
-      </div>
-    </div>
-  </div>
+    </template>
+  </template>
 </section>
+
 <style>
   .project-list-enhanced {
     max-width: 900px;
