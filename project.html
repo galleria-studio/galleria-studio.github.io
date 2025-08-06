@@ -1,63 +1,108 @@
-<style>
-  .project-list {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    color: #000;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-
-  .project-list .year-group {
-    margin-bottom: 2rem;
-  }
-
-  .project-list h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    border-left: 4px solid #000;
-    padding-left: 0.5rem;
-  }
-
-  .project-list ul {
-    list-style: none;
-    padding-left: 1rem;
-    margin: 0;
-  }
-
-  .project-list li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-</style>
 <p>
   Ciao Rosaria, questa ovviamente è una reference. <br>
   Se ho capito la lista che intendi, non mi aggrada molto, sa di cheap e credo sia stata usata anche da Delphilab. <br>
   Un forte abbraccio <br>
   Dr. Gusto
 </p>
-<section class="project-list">
-  <div class="year-group">
+<section class="project-list-enhanced">
+  <div class="year-block">
     <h3>2025</h3>
-    <ul>
-      <li>Residenza privata – Milano</li>
-      <li>Centro culturale – Bologna</li>
-    </ul>
+    <div class="project">
+      <img src="docs/cunda/Il Maltese_Furore107.jpg" alt="Residenza privata – Milano">
+      <div class="info">
+        <h4>Residenza privata – Milano</h4>
+        <p>Progetto residenziale su misura nel cuore della città, eleganza e luce naturale protagoniste.</p>
+      </div>
+    </div>
+    <div class="project">
+      <img src="docs/cunda/Il Maltese_Furore112.jpg" alt="Centro culturale – Bologna">
+      <div class="info">
+        <h4>Centro culturale – Bologna</h4>
+        <p>Spazio pubblico multifunzionale, progettato per connessione e flusso continuo.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="year-group">
+  <div class="year-block">
     <h3>2024</h3>
-    <ul>
-      <li>Ristrutturazione villa storica – Firenze</li>
-      <li>Uffici direzionali – Torino</li>
-    </ul>
-  </div>
-
-  <div class="year-group">
-    <h3>2023</h3>
-    <ul>
-      <li>Spazio espositivo – Venezia</li>
-      <li>Abitazione unifamiliare – Como</li>
-    </ul>
+    <div class="project">
+      <img src="docs/bioma/1.jpg" alt="Ristrutturazione villa storica – Firenze">
+      <div class="info">
+        <h4>Ristrutturazione villa storica – Firenze</h4>
+        <p>Intervento calibrato tra memoria e innovazione architettonica.</p>
+      </div>
+    </div>
+    <div class="project">
+      <img src="docs/bioma/2.jpg" alt="Uffici direzionali – Torino">
+      <div class="info">
+        <h4>Uffici direzionali – Torino</h4>
+        <p>Layout operativo flessibile, progettazione full BIM e attenzione al benessere lavorativo.</p>
+      </div>
+    </div>
   </div>
 </section>
+<style>
+  .project-list-enhanced {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #000;
+  }
+
+  .year-block {
+    margin-bottom: 3rem;
+  }
+
+  .year-block h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #000;
+    padding-left: 0.6rem;
+  }
+
+  .project {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+
+  .project img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid #000;
+    transition: transform 0.4s ease;
+  }
+
+  .project img:hover {
+    transform: scale(1.03);
+  }
+
+  .info h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .project {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project img {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>

@@ -1,78 +1,144 @@
 <p>
-  Ciao Rosaria, ancora tu, ovviamente questa è una reference per aiutarvi. <br>
-  Onestamente vi metterei sparsi, lo so che siete 3, quindi alla fine uscirà un triangolo, ma vabè.
-  <br>Un forte abbraccio <br>
+  Ciao Rosaria, questa ovviamente è una reference. <br>
+  Un forte abbraccio <br>
   Dr. Gusto
 </p>
-<section class="team">
-  <div class="team-member">
-    <img src="assets/imGES/Rosco.png" alt="Rosa Scognamiglio – Architetto">
-    <h3>Rosco</h3>
-    <p class="role">Fondatore / Architetto</p>
-    <p class="bio">Si occupa di progettazione residenziale e direzione artistica. Ama disegnare a mano ogni concept.</p>
+<section class="studio-team-block">
+  <div class="studio-left">
+    <img src="assets/imGES/villino_clara.png" alt="Studio" class="studio-img">
   </div>
 
-  <div class="team-member">
-    <img src="assets/imGES/Frankie.png" alt="Francesca Agnese - Architetto">
-    <h3>Franca</h3>
-    <p class="role">Architetto</p>
-    <p class="bio">Specializzata in interni contemporanei e spazi pubblici. Attenta al dettaglio e alla luce.</p>
-  </div>
+  <div class="studio-right">
+    <div class="studio-caption">
+      <h2>Lo studio</h2>
+      <p>Progettiamo spazi con metodo, velocità e presenza. Siamo architetti con visione e concretezza: niente fuffa,
+        solo idee costruibili.</p>
+    </div>
 
-  <div class="team-member">
-    <img src="assets/imGES/Frank.png" alt="Francesco – Architetto">
-    <h3>Frank</h3>
-    <p class="role">Architetto</p>
-    <p class="bio">Coordina i progetti esecutivi e la modellazione 3D. Coniuga precisione tecnica e visione estetica.
-    </p>
+    <div class="team team-inline">
+      <div class="team-member">
+        <img src="assets/imGES/Rosco.png" alt="Rosco">
+        <h3>Rosco</h3>
+        <p class="role">Fondatore / Architetto</p>
+        <p class="bio">Coordina i concept e guida la direzione creativa. Punto fermo nei momenti critici.</p>
+      </div>
+
+      <div class="team-member">
+        <img src="assets/imGES/Frankie.png" alt="Franca">
+        <h3>Franca</h3>
+        <p class="role">Architetto</p>
+        <p class="bio">Specialista in interni e ambienti pubblici. Precisione, intuito e sensibilità spaziale.</p>
+      </div>
+
+      <div class="team-member">
+        <img src="assets/imGES/Frank.png" alt="Frank">
+        <h3>Frank</h3>
+        <p class="role">Architetto</p>
+        <p class="bio">Gestisce i progetti esecutivi e il 3D. Tecnica pura e controllo totale del processo.</p>
+      </div>
+    </div>
   </div>
 </section>
+
 <style>
-  body {
-    background-color: #fff;
-    color: #000;
-    font-family: 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
+  .studio-team-block {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    align-items: flex-start;
   }
 
-  .team {
-    max-width: 400px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-    text-align: center;
+  .studio-left {
+    flex: 1;
+  }
+
+  .studio-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #000;
+  }
+
+  .studio-right {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .studio-caption h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .studio-caption p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #111;
+    margin-bottom: 2.5rem;
+  }
+
+  .team-inline {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .team-member {
-    margin-bottom: 4rem;
+    width: calc(33.33% - 1.4rem);
+    text-align: center;
   }
 
   .team-member img {
-    width: 220px;
-    height: auto;
+    width: 100%;
+    max-width: 160px;
     border-radius: 50%;
     border: 2px solid #000;
-    display: block;
     margin: 0 auto 1rem;
+    display: block;
   }
 
   .team-member h3 {
-    font-size: 1.4rem;
-    margin: 0.3rem 0 0.2rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0.2rem 0;
+    font-weight: 600;
   }
 
   .role {
     font-style: italic;
-    color: #444;
-    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
   }
 
   .bio {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.4;
-    max-width: 320px;
-    margin: 0 auto;
     color: #222;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .studio-team-block {
+      flex-direction: column;
+    }
+
+    .studio-img {
+      width: 100%;
+    }
+
+    .team-inline {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-member {
+      width: 100%;
+      max-width: 320px;
+    }
   }
 </style>

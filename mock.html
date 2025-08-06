@@ -79,7 +79,7 @@
   </nav>
 
 
-  <div id="content" class="container-fluid content-transition">
+  <div id="content" class="container-fluid content-transition" style="min-height: 79%;">
   </div>
   <footer id="footer" class="footer navbar-fixed-bottom mt-4">
     <div class="container-fluid d-flex bg-dark justify-content-between">
@@ -112,19 +112,19 @@
 
     function navbar() {
       return {
-        activeHref: '#home',
+        activeHref: window.location.pathname || '/',
         menuItems: route,
         navigate(href, page) {
           this.activeHref = href;
+
+          history.pushState({href, page}, '', href);
+
           if (page) {
             loadPage(page);
           }
-          // Se vuoi, puoi anche aggiornare la hash della URL
-          window.location.hash = href;
         }
       }
     }
-
     function setActive(element) {
       [...document.querySelectorAll('.active')]?.forEach(x => x.classList.remove('active'))
       element.classList.add('active');
@@ -149,7 +149,13 @@
       }, 300);
     }
 
+    document.addEventListener('DOMContentLoaded', () => {
+      const path = window.location.pathname;
+      const routeItem = route.find(r => r.href === path);
+      const page = routeItem ? routeItem.page : 'grid.html'; // fallback: Home
 
+      loadPage(page);
+    });
     document.addEventListener('DOMContentLoaded', function () {
       const currentRoute = route.find(x => x.href === location.hash);
       //navigate(currentRoute.href, currentRoute.page);

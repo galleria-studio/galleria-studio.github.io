@@ -1,22 +1,22 @@
 const route = [
-  { label: 'Home', href: '#home', page: 'grid.html' },
-  { label: 'Progetti', href: '#progetti', page: 'project.html' },
-  { label: 'Team', href: '#team', page: 'team.html' },
-  { label: 'Contatti', href: '#contatti', page: 'contact.html' },
-  { label: 'Press', href: '#press', page: 'press.html' }
+  { label: 'Home', href: '/', page: 'grid.html' },
+  { label: 'Progetti', href: '/progetti', page: 'project.html' },
+  { label: 'Team', href: '/team', page: 'team.html' },
+  { label: 'Press', href: '/press', page: 'press.html' },
+  { label: 'Contatti', href: '/contatti', page: 'contact.html' },
 ];
 function imageGrid() {
   return {
     gridPics: [],
     async loadImages() {
       const response = await fetch("structure.json")
-      const data = await response.json();
+      const data = [...await response.json()].map(x => ({ ...x, visible: false }));
       this.gridPics = fillTo18(data);
     }
   }
 }
 
-function fillTo18(arr, filler = {}) {
+function fillTo18(arr, filler = { visible: false }) {
   const filled = [...arr];
   while (filled.length < 16) {
     filled.push({ ...filler });
@@ -80,16 +80,16 @@ function submitForm(event) {
 
 function changeMosaic() {
   const mosaic = document.querySelector('.mosaic');
-  if ([...mosaic.classList].find(x => x === 'col-md-3')) {
+  if ([...mosaic.classList].find(x => x === 'col-lg-3')) {
 
     [...document.querySelectorAll('.mosaic')].forEach(x => {
-      x.classList.remove('col-md-3');
-      x.classList.add('col-md-4');
+      x.classList.remove('col-lg-3');
+      x.classList.add('col-lg-4');
     })
     return;
   }
   [...document.querySelectorAll('.mosaic')].forEach(x => {
-    x.classList.remove('col-md-4');
-    x.classList.add('col-md-3');
+    x.classList.remove('col-lg-4');
+    x.classList.add('col-lg-3');
   })
 }
