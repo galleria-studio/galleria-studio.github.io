@@ -103,3 +103,44 @@ function changeMosaic() {
     x.classList.add('col-lg-3');
   })
 }
+  function navbar() {
+      return {
+        activeHref: window.location.pathname || '/',
+        menuItems: route,
+        navigate(href, page, label) {
+          sessionStorage.redirect = href;
+          this.activeHref = href;
+
+          history.pushState({ href, page }, '', href);
+          setActive(document.querySelector(`#${label}`));
+          if (page) {
+            loadPage(page);
+          }
+        }
+      }
+    }
+    function setActive(element) {
+      [...document.querySelectorAll('.active')]?.forEach(x => x.classList.remove('active'))
+      element.classList.add('active');
+    }
+
+    
+    function loadPage(page) {
+      const container = document.getElementById('content');
+      container.classList.remove('content-visible');
+      setTimeout(() => {
+        fetch(page)
+          .then(response => response.text())
+          .then(html => {
+            container.innerHTML = html;
+            void container.offsetWidth;
+            container.classList.add('content-visible');
+          })
+          .catch(err => {
+            document.getElementById('content').innerHTML = "<p>Errore nel caricamento della pagina.</p>";
+            container.classList.add('content-visible');
+          });
+
+
+      }, 300);
+    }

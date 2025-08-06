@@ -4,22 +4,19 @@
   Un forte abbraccio <br>
   Dr. Gusto
 </p>
-<section class="project-list-enhanced"
-x-data="projects()"
-x-init="loadProjects()"
->
-<template x-for="item in projects">
-  <div class="year-block">
-    <h3 x-text="item.year"></h3>
-    <template x-for="project in item.projects">
-    <div class="project">
-      <img :src="'docs/' + project.image" :alt="project.title">
-      <div class="info">
-        <h4 x-text="project.title"></h4>
-        <p x-text="project.description"></p>
-      </div>
-    </div>
-    </template>
+<section class="project-list-enhanced" x-data="projects()" x-init="loadProjects()">
+  <template x-for="item in projects">
+    <div class="year-block">
+      <h3 x-text="item.year"></h3>
+      <template x-for="project in item.projects">
+        <div class="project">
+          <img :src="'docs/' + project.image" :alt="project.title">
+          <div class="info">
+            <h4 x-text="project.title"></h4>
+            <p x-text="project.description"></p>
+          </div>
+        </div>
+      </template>
   </template>
 </section>
 
