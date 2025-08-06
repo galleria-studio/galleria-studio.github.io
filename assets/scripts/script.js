@@ -1,9 +1,9 @@
 const route = [
-  { label: 'Home', href: '/', page: 'grid.html' },
-  { label: 'Progetti', href: '/progetti', page: 'project.html' },
-  { label: 'Team', href: '/team', page: 'team.html' },
-  { label: 'Press', href: '/press', page: 'press.html' },
-  { label: 'Contatti', href: '/contatti', page: 'contact.html' },
+  { label: 'Home', href: '/', page: 'grid.html', active: false },
+  { label: 'Progetti', href: '/progetti', page: 'project.html', active: false },
+  { label: 'Team', href: '/team', page: 'team.html', active: false },
+  { label: 'Press', href: '/press', page: 'press.html', active: false },
+  { label: 'Contatti', href: '/contatti', page: 'contact.html', active: false },
 ];
 function imageGrid() {
   return {

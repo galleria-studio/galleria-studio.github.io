@@ -19,7 +19,14 @@
   <meta property="og:image"
     content="https://instagram.ffco2-1.fna.fbcdn.net/v/t51.2885-19/453172743_1985333381887087_4931884107759283637_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.ffco2-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=IqP0TrRrAIEQ7kNvgE2bMfM&_nc_gid=81e14c70ae96469fbf0d668b7e8c0d27&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AYCIudBkzl0Oim-KdFPcm8Tm_2Hc2Gz8SEPTiW1ddc7v2Q&oe=6736551A&_nc_sid=8b3546">
   <meta property="og:url" content="https://www.galleriastudio.it">
+
   <title>galleria | studio di architettura</title>
+  <script>
+    if (location.search.startsWith("?")) {
+      const redirectedPath = location.search.slice(1).replace(/&/g, "/");
+      history.replaceState(null, null, redirectedPath);
+    }
+  </script>
   <!-- <link lin -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,14 +163,14 @@
 
       loadPage(page);
     });
-    document.addEventListener('DOMContentLoaded', function () {
-      const currentRoute = route.find(x => x.href === location.hash);
-      //navigate(currentRoute.href, currentRoute.page);
-      loadPage(currentRoute?.page || 'grid.html');
-      return;
-
-
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   const currentRoute = route.find(x => x.href === location.hash);
+    //   //navigate(currentRoute.href, currentRoute.page);
+    //   loadPage(currentRoute?.page || 'grid.html');
+    //   return;
+    //
+    //
+    // });
   </script>
 
 </body>
