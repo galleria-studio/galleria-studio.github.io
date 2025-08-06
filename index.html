@@ -174,7 +174,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const path = window.location.pathname;
+      const path = sessionStorage.redirect;
       const routeItem = route.find(r => r.href === path);
       const page = routeItem ? routeItem.page : 'grid.html'; // fallback: Home
 
