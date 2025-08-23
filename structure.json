@@ -3,12 +3,56 @@
     "path": "cunda/Il Maltese_Furore36.jpg",
     "project": "Il Maltese",
     "year": 2021,
-    "location": "Furore"
+    "location": "Furore",
+    "id": "cunda"
   },
   {
     "path": "bioma/4.jpg",
     "project": "Bioma",
     "year": 2024,
-    "location": "Napoli"
+    "location": "Napoli",
+    "id": "bioma"
+  },
+  {
+    "path": "paliano/illustrazioni_2.jpg",
+    "project": "Nuovo plesso scolastico in loc. “sette fontane”",
+    "year": 2021,
+    "location": "Paliano",
+    "id": "paliano"
+  },
+  {
+    "path": "casale/atrio sopra.jpg",
+    "project": "Nuovo polo scolastico",
+    "year": 2024,
+    "location": "Casal di Principe (NA)",
+    "id": "casale"
+  },
+  {
+    "path": "biassono/VISTA RETRO-Layout1_v1.jpg",
+    "project": "Nuova scuola primaria",
+    "year": 2025,
+    "location": "Biassono (MB)",
+    "id": "biassono"
+  },
+  {
+    "path": "vigasio/STRADA2.jpg",
+    "project": "Nuovo polo dell'infanzia",
+    "year": 2023,
+    "location": "Vigasio (VR)",
+    "id": "vigasio"
+  },
+  {
+    "path": "agerola/mascherina rev 01 copia.jpg",
+    "project": "Nuovo polo dell'infanzia",
+    "year": 2024,
+    "location": "Agerola (NA)",
+    "id": "agerola"
+  },
+  {
+    "path": "troisi/Atrio_2_modificato.jpg",
+    "project": "Scuola dell'infanzia Plesso Troisi",
+    "year": 2025,
+    "location": "Pozzuoli (NA)",
+    "id": "troisi"
   }
 ]
