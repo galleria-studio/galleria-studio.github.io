@@ -1,42 +1,36 @@
-<div class="container-fluid">
+<div class="container-fluid p-0" x-init="initDetail()" x-data="currentProjectDetail">
+    <div class="w-100 mb-3" style="height: 350px;overflow: hidden;">
+        <img :src="'docs/' + id + '/' + cover" class="w-100" style="transform: translateY(-300px)">
+        <span class="text-white position-absolute ms-4" style="top:230px;left:0;font-size:80px">
+            <strong x-text="coverTitle">sdfsdfsdfsd</strong>
+
+        </span>
+
+    </div>
+
     <div class="row">
         <div class="col-md-6">
-            <img src="docs/cunda/Il Maltese_Furore36.jpg" class="img-fluid" alt="Rendering di una struttura in vetro">
+            <img :src="'docs/' + id + '/' + mainImage" class="img-fluid" width="903px" height="602px" style="
+    width: 903px!important;
+    height: 602px!important;
+">
         </div>
         <div class="col-md-6 p-4 pt-0 pb-0">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                lacus vel facilisis.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                lacus vel facilisis.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                lacus vel facilisis.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                lacus vel facilisis.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-                lacus vel facilisis.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra              
+            <p x-text="currentProjectDetail.longDescription"></p>
 
-            </p>
 
-                <div class="mt-4 pt-2">
-                    <h4>Crediti:</h4>
-                    <div><strong>Cliente:</strong> aaa</div>
-                    <div><strong>Procedura:</strong> aaa</div>
-                    <div><strong>Anno:</strong> aaa</div>
-                    <div><strong>Oggetto:</strong> aaa</div>
-                    <div><strong>Importo lavori:</strong> aa</div>
-                    <div><strong>Gruppo di lavoro:</strong> aa</div>
-                    <div><strong>Collaboratori e consulenti:</strong> aa</div>
-                    <div><strong>Immagini:</strong> aa</div>
-                    <div><strong>Stato:</strong> aaa</div>
-                </div>
+            <div class="mt-4 pt-2">
+                <h4>Crediti:</h4>
+                <div><strong>Cliente:</strong> <span x-text="credits.client"></span></div>
+                <div><strong>Procedura:</strong> <span x-text="credits.procedure"></span></div>
+                <div><strong>Anno:</strong> <span x-text="credits.year"></span></div>
+                <div><strong>Oggetto:</strong> <span x-text="credits.subject"></span></div>
+                <div><strong>Importo lavori:</strong> <span x-text="credits.amount"></span></div>
+                <div><strong>Gruppo di lavoro:</strong> <span x-text="credits.workGroup"></span></div>
+                <div><strong>Collaboratori e consulenti:</strong> <span x-text="credits.contributors"></span></div>
+                <div><strong>Immagini:</strong> <span x-text="credits.imagesBy"></span></div>
+                <div><strong>Stato:</strong> <span x-text="credits.state"></span></div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,18 +1,18 @@
 {
-    "cover": "",
-    "coverTitle":"",
-    "mainImage": "",
-    "longDescription": "",
-    "gallery":[],
+    "cover": "2.jpg",
+    "coverTitle": "Bioma Il Bioparco del mediterraneo",
+    "mainImage": "3.jpg",
+    "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra",
+    "gallery": [],
     "credits": {
-        "client": "",
-        "procedure": "",
-        "year": "",
-        "amount": "",
-        "workGroup": "",
-        "contributors": "",
-        "state": "",
-        "imagesBy":""
-
+        "client": "aaa",
+        "procedure": "aa",
+        "year": "2024",
+        "subject": "oggetto",
+        "amount": "22222",
+        "workGroup": "aa",
+        "contributors": "aa",
+        "state": "aa",
+        "imagesBy": "aa"
     }
 }

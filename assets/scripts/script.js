@@ -5,6 +5,9 @@ const route = [
   { label: "Press", href: "/press", page: "press.html", active: false },
   { label: "Contatti", href: "/contatti", page: "contact.html", active: false },
 ];
+
+let currentProjectDetail = undefined;
+
 function imageGrid() {
   return {
     gridPics: [],
@@ -15,6 +18,12 @@ function imageGrid() {
         visible: false,
       }));
       this.gridPics = fillTo18(data);
+    },
+    async cellClick(cell) {
+      const response = await fetch(`details/${cell.id}.json`);
+      currentProjectDetail = await response.json();
+      currentProjectDetail = { ...currentProjectDetail, id: cell.id };
+      loadPage("detail.html");
     },
   };
 }
@@ -132,6 +141,14 @@ function navbar() {
       if (page) {
         loadPage(page);
       }
+      const nav = document.getElementById("nav");
+      if (nav.classList.contains("position-absolute")) {
+        nav.classList.remove("position-absolute", "w-100");
+        [...nav.querySelectorAll("ul a")].forEach((x) => {
+          x.classList.remove("text-white");
+          x.classList.add("text-black");
+        });
+      }
     },
   };
 }
@@ -140,6 +157,14 @@ function setActive(element) {
     x.classList.remove("active")
   );
   element.classList.add("active");
+}
+
+function loadDetail() {
+  return {
+    pasta() {
+      alert("ok");
+    },
+  };
 }
 
 function loadPage(page) {
@@ -160,3 +185,13 @@ function loadPage(page) {
       });
   }, 300);
 }
+
+window.initDetail = function iniDetail() {
+  const nav = document.getElementById("nav");
+  nav.classList.add("position-absolute", "w-100");
+  [...nav.querySelectorAll("ul a")].forEach((x) => {
+    x.classList.remove("text-black");
+    x.classList.add("text-white");
+  });
+  nav.style.zIndex = 3;
+};

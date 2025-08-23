@@ -6,7 +6,7 @@
           <img style="aspect-ratio: 15/8;" :src="'docs/' + item.path"
           
           >
-          <div class="overlay" onclick="loadPage('detail.html')">
+          <div class="overlay" @click="cellClick(item)">
             <div class="overlay-top" x-text="item.project"></div>
             <div class="overlay-bottom" x-text="item.location + ' ' + item.year" ></div>
           </div>
