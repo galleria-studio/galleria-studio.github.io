@@ -1,38 +1,72 @@
 <div class="container-fluid p-0" x-init="initDetail()" x-data="currentProjectDetail">
     <div class="w-100 mb-3" style="height: 350px;overflow: hidden;">
-        <img :src="'docs/' + id + '/' + cover" class="w-100" style="transform: translateY(-300px)">
-        <span class="text-white position-absolute ms-4" style="top:230px;left:0;font-size:80px">
+        <img :src="'docs/' + id + '/' + cover" :alt="coverTitle + ' - ' + id" class="w-100" style="transform: translateY(-300px)" loading="lazy">
+        <h1 class="text-white position-absolute ms-4" style="top:230px;left:0;font-size:80px">
             <strong x-text="coverTitle">sdfsdfsdfsd</strong>
-
-        </span>
-
+        </h1>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <img :src="'docs/' + id + '/' + mainImage" class="img-fluid" width="903px" height="602px" style="
+            <img :src="'docs/' + id + '/' + mainImage" :alt="'Immagine principale progetto ' + currentProjectDetail.title" class="img-fluid" width="903px" height="602px" style="
     width: 903px!important;
     height: 602px!important;
-">
+" loading="lazy">
         </div>
         <div class="col-md-6 p-4 pt-0 pb-0">
+            <h2 x-text="currentProjectDetail.title"></h2>
             <p x-text="currentProjectDetail.longDescription"></p>
 
 
             <div class="mt-4 pt-2">
-                <h4>Crediti:</h4>
-                <div><strong>Cliente:</strong> <span x-text="credits.client"></span></div>
-                <div><strong>Procedura:</strong> <span x-text="credits.procedure"></span></div>
-                <div><strong>Anno:</strong> <span x-text="credits.year"></span></div>
-                <div><strong>Oggetto:</strong> <span x-text="credits.subject"></span></div>
-                <div><strong>Importo lavori:</strong> <span x-text="credits.amount"></span></div>
-                <div><strong>Gruppo di lavoro:</strong> <span x-text="credits.workGroup"></span></div>
-                <div><strong>Collaboratori e consulenti:</strong> <span x-text="credits.contributors"></span></div>
-                <div><strong>Immagini:</strong> <span x-text="credits.imagesBy"></span></div>
-                <div><strong>Stato:</strong> <span x-text="credits.state"></span></div>
+                <h3>Crediti:</h3>
+                <dl>
+                  <dt><strong>Cliente:</strong></dt>
+                  <dd><span x-text="credits.client"></span></dd>
+                  
+                  <dt><strong>Procedura:</strong></dt>
+                  <dd><span x-text="credits.procedure"></span></dd>
+                  
+                  <dt><strong>Anno:</strong></dt>
+                  <dd><span x-text="credits.year"></span></dd>
+                  
+                  <dt><strong>Oggetto:</strong></dt>
+                  <dd><span x-text="credits.subject"></span></dd>
+                  
+                  <dt><strong>Importo lavori:</strong></dt>
+                  <dd><span x-text="credits.amount"></span></dd>
+                  
+                  <dt><strong>Gruppo di lavoro:</strong></dt>
+                  <dd><span x-text="credits.workGroup"></span></dd>
+                  
+                  <dt><strong>Collaboratori e consulenti:</strong></dt>
+                  <dd><span x-text="credits.contributors"></span></dd>
+                  
+                  <dt><strong>Immagini:</strong></dt>
+                  <dd><span x-text="credits.imagesBy"></span></dd>
+                  
+                  <dt><strong>Stato:</strong></dt>
+                  <dd><span x-text="credits.state"></span></dd>
+                </dl>
             </div>
         </div>
     </div>
+
+    <!-- Schema.org Structured Data for Project -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Test Title",
+      "description": "Test Description",
+      "image": "Test Image",
+      "author": {
+        "@type": "Organization",
+        "name": "galleria | studio di architettura"
+      },
+      "dateCreated": "2024-01-01"
+    }
+    </script>
 </div>
 <!-- 
 <div class="container mt-5">

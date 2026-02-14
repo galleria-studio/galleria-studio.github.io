@@ -3,9 +3,27 @@
     "year": "2021",
     "projects": [
       {
+        "id": "cunda",
         "title": "Il Maltese - Furore",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "image": "/cunda/Il Maltese_Furore107.jpg"
+        "description": "Progetto B&B di ristrutturazione e riqualificazione di una casa residenziale a Furore, sulla Costiera Amalfitana. L'intervento ha trasformato la dimora preservando le caratteristiche architettoniche originali del contesto paesaggistico. Un progetto che coniuga funzionalità abitative con il rispetto del territorio e dell'eredità costruttiva locale.",
+        "image": "cunda/Il Maltese_Furore36.jpg"
+      },
+      {
+        "id": "paliano",
+        "title": "Nuovo plesso scolastico - Paliano",
+        "description": "Progettazione di un nuovo polo scolastico nel comune di Paliano, in località Sette Fontane. L'intervento prevede la creazione di spazi didattici innovativi, aule moderne e zone comuni dedicate all'inclusione e alle attività extracurricolari. Un progetto che mette al centro la qualità degli ambienti educativi.",
+        "image": "paliano/illustrazioni_2.jpg"
+      }
+    ]
+  },
+  {
+    "year": "2023",
+    "projects": [
+      {
+        "id": "vigasio",
+        "title": "Nuovo polo dell'infanzia - Vigasio",
+        "description": "Realizzazione di un nuovo polo dell'infanzia a Vigasio in provincia di Verona. Il progetto prevede scuole dell'infanzia dotate di spazi luminosi, ambienti naturali integrati e aree didattiche multifunzionali. Particolare attenzione alla sostenibilità ambientale e al benessere dei bambini.",
+        "image": "vigasio/STRADA2.jpg"
       }
     ]
   },
@@ -13,9 +31,39 @@
     "year": "2024",
     "projects": [
       {
+        "id": "bioma",
         "title": "Bioma - Napoli",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "image": "/bioma/1.jpg"
+        "description": "Progetto innovativo di riqualificazione urbana a Napoli che integra funzioni residenziali, commerciali e culturali. Bioma rappresenta una visione contemporanea dello spazio pubblico e privato, con particolare focus sulla sostenibilità, sulla mobilità dolce e sulla creazione di comunità. Un intervento di rigenerazione urbana che dialoga con il contesto napoletano.",
+        "image": "bioma/4.jpg"
+      },
+      {
+        "id": "casale",
+        "title": "Nuovo polo scolastico - Casal di Principe",
+        "description": "Progettazione di un nuovo polo scolastico a Casal di Principe (NA) concepito come spazio polifunzionale e inclusivo. Il progetto mira a creare ambienti di qualità dove si svolgono attività didattiche, ricreative e culturali. L'architettura riflette i principi di accessibilità universale e sostenibilità.",
+        "image": "casale/atrio sopra.jpg"
+      },
+      {
+        "id": "agerola",
+        "title": "Nuovo polo dell'infanzia - Agerola",
+        "description": "Progetto di un nuovo polo dell'infanzia ad Agerola (NA) immerso nel contesto naturalistico della Costiera Amalfitana. La struttura è pensata per offrire ambienti accoglienti e sicuri, con integrazione degli spazi esterni per favorire l'educazione all'aperto. Un intervento che valorizza il legame con il territorio.",
+        "image": "agerola/mascherina rev 01 copia.jpg"
+      }
+    ]
+  },
+  {
+    "year": "2025",
+    "projects": [
+      {
+        "id": "biassono",
+        "title": "Nuova scuola primaria - Biassono",
+        "description": "Realizzazione di una nuova scuola primaria a Biassono (MB), progettata secondo i più moderni standard educativi. La struttura prevede aule luminose, laboratori specializzati, spazi per l'attività fisica e zone dedicate all'interazione sociale. Un edificio scolastico di eccellenza che promuove l'apprendimento innovativo.",
+        "image": "biassono/VISTA RETRO-Layout1_v1.jpg"
+      },
+      {
+        "id": "troisi",
+        "title": "Scuola dell'infanzia Plesso Troisi - Pozzuoli",
+        "description": "Progettazione della scuola dell'infanzia Plesso Troisi a Pozzuoli (NA), uno spazio educativo pensato per i bambini in età prescolare. Gli ambienti sono disegnati per stimolare la creatività e favorire lo sviluppo psicomotorio attraverso spazi gioco, laboratori artistici e aree esterne sicure. Un progetto focalizzato sul benessere del bambino.",
+        "image": "troisi/Atrio_2_modificato.jpg"
       }
     ]
   }

@@ -1,0 +1,16 @@
+# Robots.txt for galleria studio di architettura
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /_*
+Disallow: /.git
+
+# Sitemap location
+Sitemap: https://www.galleriastudio.it/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1
+
+# Block specific bots if needed
+User-agent: MJ12bot
+Allow: /

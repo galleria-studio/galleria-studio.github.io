@@ -1,18 +1,19 @@
 {
-    "cover": "2.jpg",
-    "coverTitle": "Bioma Il Bioparco del mediterraneo",
+    "cover": "4.jpg",
+    "coverTitle": "Bioma - Napoli",
     "mainImage": "3.jpg",
-    "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra",
-    "gallery": [],
+    "title": "Bioma - Riqualificazione Urbana",
+    "longDescription": "Progetto innovativo di riqualificazione urbana a Napoli che integra funzioni residenziali, commerciali e culturali. Bioma rappresenta una visione contemporanea dello spazio pubblico e privato, con particolare focus sulla sostenibilità, sulla mobilità dolce e sulla creazione di comunità. Un intervento di rigenerazione urbana che dialoga con il contesto napoletano, promuovendo nuovi modelli di convivialità e rigenerazione del tessuto urbano. L'intervento prevede la creazione di spazi aperti multifunzionali, aree verdi integrative e una progettazione che mette al centro la qualità della vita urbana e l'interazione tra gli spazi pubblici e privati.",
+    "gallery": ["1.jpg", "2.jpg", "5.jpg"],
     "credits": {
-        "client": "aaa",
-        "procedure": "aa",
+        "client": "Comune di Napoli",
+        "procedure": "Progettazione e Realizzazione",
         "year": "2024",
-        "subject": "oggetto",
-        "amount": "22222",
-        "workGroup": "aa",
-        "contributors": "aa",
-        "state": "aa",
-        "imagesBy": "aa"
+        "subject": "Riqualificazione Urbana e Rigenerazione Territoriale",
+        "amount": "Riservato",
+        "workGroup": "galleria | studio di architettura",
+        "contributors": "Consulenti specializzati in sostenibilità urbana",
+        "state": "In corso",
+        "imagesBy": "Fotografi professionisti"
     }
 }

@@ -1,17 +1,17 @@
 <div class="container-fluid mt-2" x-data="imageGrid()" x-init="loadImages()">
+  <h1 class="visually-hidden">Progetti - galleria</h1>
   <div class="row g-2 ">
     <template x-for="item in gridPics">
       <div class="col-lg-3 d-flex mosaic">
         <div class="img-hover-wrapper w-100" x-show="item.path">
-          <img style="aspect-ratio: 15/8;" :src="'docs/' + item.path"
-          
-          >
-          <div class="overlay" @click="cellClick(item)">
+          <img style="aspect-ratio: 15/8;" :src="'docs/' + item.path" :alt="item.project + ' - ' + item.location + ' (' + item.year + ')'"
+          loading="lazy">
+          <div class="overlay" @click="cellClick(item)" role="button" tabindex="0" :aria-label="'Visualizza progetto: ' + item.project">
             <div class="overlay-top" x-text="item.project"></div>
             <div class="overlay-bottom" x-text="item.location + ' ' + item.year" ></div>
           </div>
         </div>
-        <div class="img-hover-wrapper w-100 bg-black" style="aspect-ratio: 15/8;" x-show="!item.path">
+        <div class="img-hover-wrapper w-100 bg-black" style="aspect-ratio: 15/8;" x-show="!item.path" aria-hidden="true">
 
         </div>
       </div>

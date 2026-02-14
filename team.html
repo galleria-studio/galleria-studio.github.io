@@ -1,38 +1,72 @@
 <section class="studio-team-block">
   <div class="studio-left">
-    <img src="assets/imGES/villino_clara.png" alt="Studio" class="studio-img">
+    <div class="studio-image-card">
+      <img src="assets/imGES/villino_clara.png" alt="Studio di bellezza con interni moderni" class="studio-img">
+      <div class="studio-img-overlay">Lo Studio</div>
+    </div>
   </div>
 
   <div class="studio-right">
     <div class="studio-caption">
-      <h2>Lo studio</h2>
-      <p>Progettiamo spazi con metodo, velocità e presenza. Siamo architetti con visione e concretezza: niente fuffa,
+      <h1 class="section-title">Lo studio</h1>
+      <p class="section-intro">Progettiamo spazi con metodo, velocità e presenza. Siamo architetti con visione e concretezza: niente fuffa,
         solo idee costruibili.</p>
     </div>
 
-    <div class="team team-inline">
+    <div class="team team-grid">
       <div class="team-member">
-        <img src="assets/imGES/Rosco.png" alt="Rosco">
-        <h3>Rosco</h3>
+        <div class="member-image-wrapper">
+          <img src="assets/imGES/Rosco.png" alt="Rosco - Fondatore e Architetto dello studio" loading="lazy">
+          <div class="member-overlay">
+            <span class="role-overlay">Fondatore / Architetto</span>
+          </div>
+        </div>
+        <h2>Rosa Scognamiglio</h2>
         <p class="role">Fondatore / Architetto</p>
         <p class="bio">Coordina i concept e guida la direzione creativa. Punto fermo nei momenti critici.</p>
       </div>
 
       <div class="team-member">
-        <img src="assets/imGES/Frankie.png" alt="Franca">
-        <h3>Franca</h3>
+        <div class="member-image-wrapper">
+          <img src="assets/imGES/Frankie.png" alt="Franca - Architetto specialista in interni" loading="lazy">
+          <div class="member-overlay">
+            <span class="role-overlay">Architetto</span>
+          </div>
+        </div>
+        <h2>Francesca Agnese</h2>
         <p class="role">Architetto</p>
         <p class="bio">Specialista in interni e ambienti pubblici. Precisione, intuito e sensibilità spaziale.</p>
       </div>
 
-      <div class="team-member">
-        <img src="assets/imGES/Frank.png" alt="Frank">
-        <h3>Frank</h3>
-        <p class="role">Architetto</p>
-        <p class="bio">Gestisce i progetti esecutivi e il 3D. Tecnica pura e controllo totale del processo.</p>
-      </div>
     </div>
   </div>
+
+  <!-- Schema.org Structured Data for Team -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.galleriastudio.it",
+    "name": "galleria | studio di architettura",
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Rosco",
+        "jobTitle": "Fondatore / Architetto"
+      },
+      {
+        "@type": "Person",
+        "name": "Franca",
+        "jobTitle": "Architetto"
+      },
+      {
+        "@type": "Person",
+        "name": "Frank",
+        "jobTitle": "Architetto"
+      }
+    ]
+  }
+  </script>
 </section>
 
 <style>
@@ -49,91 +83,201 @@
     flex: 1;
   }
 
+  .studio-image-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .studio-image-card:hover {
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+    transform: translateY(-8px);
+  }
+
   .studio-img {
     width: 100%;
     height: auto;
+    display: block;
     object-fit: cover;
-    border: 2px solid #000;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .studio-image-card:hover .studio-img {
+    transform: scale(1.05);
+  }
+
+  .studio-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 2rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .studio-image-card:hover .studio-img-overlay {
+    opacity: 1;
   }
 
   .studio-right {
     flex: 1.5;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
-  .studio-caption h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .studio-caption p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #111;
+  .studio-caption {
     margin-bottom: 2.5rem;
   }
 
-  .team-inline {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .section-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #000, transparent);
+  }
+
+  .section-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #222;
+    margin-top: 1.5rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    margin-top: 1.5rem;
   }
 
   .team-member {
-    width: calc(33.33% - 1.4rem);
     text-align: center;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .member-image-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
   }
 
   .team-member img {
-    width: 100%;
-    max-width: 160px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    border: 2px solid #000;
-    margin: 0 auto 1rem;
     display: block;
+    object-fit: cover;
+    object-position: center 20%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
   }
 
-  .team-member h3 {
-    font-size: 1.2rem;
-    margin: 0.2rem 0;
+  .member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .team-member:hover img {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .team-member:hover .member-overlay {
+    opacity: 1;
+  }
+
+  .role-overlay {
+    color: white;
+    font-size: 0.85rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .team-member h2 {
+    font-size: 1.3rem;
+    margin: 0 0 0.3rem;
+    font-weight: 700;
+    color: #000;
   }
 
   .role {
     font-style: italic;
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .bio {
     font-size: 0.9rem;
-    line-height: 1.4;
-    color: #222;
-    max-width: 260px;
-    margin: 0 auto;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .studio-team-block {
+      gap: 2rem;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
   }
 
   @media (max-width: 768px) {
     .studio-team-block {
       flex-direction: column;
+      gap: 2rem;
     }
 
-    .studio-img {
-      width: 100%;
+    .section-title {
+      font-size: 2rem;
     }
 
-    .team-inline {
-      flex-direction: column;
-      align-items: center;
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
-    .team-member {
-      width: 100%;
-      max-width: 320px;
+    .member-image-wrapper {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 </style>

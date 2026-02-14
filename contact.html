@@ -1,73 +1,346 @@
-<div class="">
-  <h2 class="mb-4">Contattaci</h2>
-  <p class="mb-5">
-    Ogni grande progetto nasce da una conversazione.<br>
-    Siamo pronti ad ascoltarti, consigliarti e guidarti in ogni fase del percorso.<br>
-    Contattaci per scoprire come possiamo collaborare insieme.
-  </p>
+<div class="contact-container">
+  <div class="contact-header">
+    <h1 class="contact-title">Contattaci</h1>
+    <p class="contact-intro">
+      Ogni grande progetto nasce da una conversazione.<br>
+      Siamo pronti ad ascoltarti, consigliarti e guidarti in ogni fase del percorso.<br>
+      Contattaci per scoprire come possiamo collaborare insieme.
+    </p>
+  </div>
 
-  <div class="row">
+  <div class="contact-main">
     <!-- Form lato sinistro -->
-    <div class="col-lg-6 mb-4">
+    <div class="contact-form-section">
       <form onsubmit="submitForm(event)" action="https://mntcapi.altervista.org/galleria-studio.php" method="post">
-        <div class="row mb-3">
-          <div class="col">
-            <input type="text" name="name" required class="form-control" placeholder="Nome e Cognome"
-              aria-label="Nome e Cognome">
+        <h2 class="form-title">Invia un messaggio</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome e Cognome</label>
+            <input type="text" id="name" name="name" required placeholder="Il tuo nome" aria-label="Nome e Cognome">
           </div>
-          <div class="col">
-            <input type="email" name="mail" required class="form-control" placeholder="E-mail" aria-label="E-mail">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="mail" required placeholder="La tua email" aria-label="E-mail">
           </div>
         </div>
-        <div class="mb-3">
-          <textarea class="form-control" name="message" required rows="6" placeholder="Messaggio"
-            aria-label="Message"></textarea>
+        <div class="form-group">
+          <label for="message">Messaggio</label>
+          <textarea id="message" name="message" required rows="6" placeholder="Il tuo messaggio..." aria-label="Messaggio"></textarea>
         </div>
-        <button type="submit" class="btn btn-outline-dark contact-btn w-25">Invia</button>
+        <button type="submit" class="submit-btn">Invia Messaggio</button>
       </form>
     </div>
 
     <!-- Contatti lato destro -->
-    <div class="col-lg-6">
-      <div class="row">
-        <div class="col-6 mb-4">
-          <h6 class="text-uppercase fw-bold mb-3">Contatto diretto</h6>
-          <p class="mb-1"><i class=" me-2 fa-solid fa-location-dot"></i><a
-              href="https://maps.app.goo.gl/TCK1xXBDWyAe9snu9" target="_blank">Via Mattia Preti, 14,
-              80127
-              Napoli NA</a> </p>
-          <p class="mb-1"><i class=" me-2 fa-solid fa-phone-volume"></i><a href="tel:08119577293">081-19577293</a> </p>
-          <p class="mb-1"><i class=" me-2 fa-brands fa-whatsapp"></i><a href="https://wa.me/393756706295"
-              target="_blank">+39 3756706295</a>
-          </p>
-          <p><i class="fa-regular fa-envelope me-2"></i><a
-              href="mailto:info@galleriastudio.it">info@galleriastudio.it</a>
-          </p>
+    <div class="contact-info-section">
+      <h2 class="info-title">Contatti Diretti</h2>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <h3>Visita lo studio</h3>
+          <address>
+            <a href="https://maps.app.goo.gl/TCK1xXBDWyAe9snu9" target="_blank" rel="noopener noreferrer">
+              Via Mattia Preti, 14<br>
+              80127 Napoli NA
+            </a>
+          </address>
         </div>
 
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h3>Telefono</h3>
+          <p><a href="tel:+390811957729">081 - 19577293</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/393756706295" target="_blank" rel="noopener noreferrer">+39 3756706295</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <h3>Email</h3>
+          <p><a href="mailto:info@galleriastudio.it">info@galleriastudio.it</a></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <gmp-map center="40.84145736694336,14.227184295654297" zoom="18" map-id="Galleria_Map"
-    style="height: 648px!important;">
-    <gmp-advanced-marker position="40.84145736694336,14.227184295654297"
-      title="Galeria | studio di architettura"></gmp-advanced-marker>
-  </gmp-map>
+  <div class="map-section">
+    <gmp-map center="40.84145736694336,14.227184295654297" zoom="18" map-id="Galleria_Map" role="region" aria-label="Mappa della posizione dello studio">
+      <gmp-advanced-marker position="40.84145736694336,14.227184295654297" title="Galeria | studio di architettura"></gmp-advanced-marker>
+    </gmp-map>
+  </div>
+
+  <!-- Schema.org Structured Data for Contact -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+39-081-19577293",
+    "email": "info@galleriastudio.it",
+    "areaServed": "IT"
+  }
+  </script>
 </div>
-<script>
 
+<style>
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  .contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+  }
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
+  .contact-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+  }
 
+  .contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #000, transparent);
+  }
 
-    });
+  .contact-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-top: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .contact-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
 
-  });
+  .contact-form-section {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  }
 
+  .contact-form-section:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
 
-</script>
+  .form-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .submit-btn {
+    background: #000;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+  }
+
+  .submit-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .contact-info-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    background: #fff;
+    padding: 1.8rem;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .contact-card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border-radius: 0;
+  }
+
+  .contact-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: #000;
+  }
+
+  .contact-card p,
+  .contact-card address {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .contact-card a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .contact-card a:hover {
+    border-bottom-color: #000;
+    color: #333;
+  }
+
+  .map-section {
+    width: 100%;
+    height: 500px;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    margin-bottom: 2rem;
+  }
+
+  gmp-map {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media (max-width: 768px) {
+    .contact-title {
+      font-size: 2.2rem;
+    }
+
+    .contact-main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .map-section {
+      height: 350px;
+    }
+  }
+</style>
+

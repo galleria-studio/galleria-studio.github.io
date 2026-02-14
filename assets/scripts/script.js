@@ -1,9 +1,9 @@
 const route = [
-  { label: "Home", href: "/", page: "grid.html", active: false },
-  { label: "Progetti", href: "/progetti", page: "project.html", active: false },
-  { label: "Team", href: "/team", page: "team.html", active: false },
-  { label: "Press", href: "/press", page: "press.html", active: false },
-  { label: "Contatti", href: "/contatti", page: "contact.html", active: false },
+  { label: "Home", href: "/", page: "grid.html", active: false, title: "galleria | studio di architettura", description: "Studio di Architettura innovativo a Napoli specializzato nella progettazione di edifici residenziali e commerciali" },
+  { label: "Progetti", href: "/progetti", page: "project.html", active: false, title: "Progetti | galleria", description: "Visualizza i nostri progetti di architettura residenziale e commerciale realizzati nel corso degli anni" },
+  { label: "Team", href: "/team", page: "team.html", active: false, title: "Team | galleria", description: "Conosci il team di architetti di galleria studio - Rosco, Franca e Frank" },
+  // { label: "Press", href: "/press", page: "press.html", active: false, title: "Blog e Press | galleria", description: "Articoli e approfondimenti sulla progettazione architettonica e il design di interni" },
+  { label: "Contatti", href: "/contatti", page: "contact.html", active: false, title: "Contatti | galleria", description: "Contatta galleria studio di architettura a Napoli per ricevere una consulenza personalizzata" },
 ];
 
 let currentProjectDetail = undefined;
@@ -169,6 +169,39 @@ function loadDetail() {
 
 function loadPage(page) {
   const container = document.getElementById("content");
+  const pathRoute = route.find(r => r.page === page);
+  
+  // Update page title
+  if (pathRoute) {
+    document.title = pathRoute.title;
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = pathRoute.description;
+    
+    // Update Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.content = pathRoute.title;
+    
+    let ogDescription = document.querySelector('meta[property="og:description"]');
+    if (!ogDescription) {
+      ogDescription = document.createElement('meta');
+      ogDescription.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescription);
+    }
+    ogDescription.content = pathRoute.description;
+  }
+  
   container.classList.remove("content-visible");
   setTimeout(() => {
     fetch(page)
