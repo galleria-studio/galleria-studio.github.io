@@ -1,9 +1,41 @@
 const route = [
-  { label: "Home", href: "/", page: "grid.html", active: false, title: "galleria | studio di architettura", description: "Studio di Architettura innovativo a Napoli specializzato nella progettazione di edifici residenziali e commerciali" },
-  { label: "Progetti", href: "/progetti", page: "project.html", active: false, title: "Progetti | galleria", description: "Visualizza i nostri progetti di architettura residenziale e commerciale realizzati nel corso degli anni" },
-  { label: "Team", href: "/team", page: "team.html", active: false, title: "Team | galleria", description: "Conosci il team di architetti di galleria studio - Rosa Scognamiglio e Francesca Agnese" },
+  {
+    label: "Home",
+    href: "/",
+    page: "grid.html",
+    active: false,
+    title: "galleria | studio di architettura",
+    description:
+      "Studio di Architettura innovativo a Napoli specializzato nella progettazione di edifici residenziali e commerciali",
+  },
+  {
+    label: "Progetti",
+    href: "/progetti",
+    page: "project.html",
+    active: false,
+    title: "Progetti | galleria",
+    description:
+      "Visualizza i nostri progetti di architettura residenziale e commerciale realizzati nel corso degli anni",
+  },
+  {
+    label: "Team",
+    href: "/team",
+    page: "team.html",
+    active: false,
+    title: "Team | galleria",
+    description:
+      "Conosci il team di architetti di galleria studio - Rosa Scognamiglio e Francesca Agnese",
+  },
   // { label: "Press", href: "/press", page: "press.html", active: false, title: "Blog e Press | galleria", description: "Articoli e approfondimenti sulla progettazione architettonica e il design di interni" },
-  { label: "Contatti", href: "/contatti", page: "contact.html", active: false, title: "Contatti | galleria", description: "Contatta galleria studio di architettura a Napoli per ricevere una consulenza personalizzata" },
+  {
+    label: "Contatti",
+    href: "/contatti",
+    page: "contact.html",
+    active: false,
+    title: "Contatti | galleria",
+    description:
+      "Contatta galleria studio di architettura a Napoli per ricevere una consulenza personalizzata",
+  },
 ];
 
 let currentProjectDetail = undefined;
@@ -34,6 +66,12 @@ function projects() {
     async loadProjects() {
       const response = await fetch("project.json");
       this.projects = await response.json();
+    },
+    async cellClick(cell) {
+      const response = await fetch(`details/${cell.id}.json`);
+      currentProjectDetail = await response.json();
+      currentProjectDetail = { ...currentProjectDetail, id: cell.id };
+      loadPage("detail.html");
     },
   };
 }
@@ -154,7 +192,7 @@ function navbar() {
 }
 function setActive(element) {
   [...document.querySelectorAll(".active")]?.forEach((x) =>
-    x.classList.remove("active")
+    x.classList.remove("active"),
   );
   element.classList.add("active");
 }
@@ -169,39 +207,41 @@ function loadDetail() {
 
 function loadPage(page) {
   const container = document.getElementById("content");
-  const pathRoute = route.find(r => r.page === page);
-  
+  const pathRoute = route.find((r) => r.page === page);
+
   // Update page title
   if (pathRoute) {
     document.title = pathRoute.title;
-    
+
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
       document.head.appendChild(metaDescription);
     }
     metaDescription.content = pathRoute.description;
-    
+
     // Update Open Graph tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
+      ogTitle = document.createElement("meta");
+      ogTitle.setAttribute("property", "og:title");
       document.head.appendChild(ogTitle);
     }
     ogTitle.content = pathRoute.title;
-    
-    let ogDescription = document.querySelector('meta[property="og:description"]');
+
+    let ogDescription = document.querySelector(
+      'meta[property="og:description"]',
+    );
     if (!ogDescription) {
-      ogDescription = document.createElement('meta');
-      ogDescription.setAttribute('property', 'og:description');
+      ogDescription = document.createElement("meta");
+      ogDescription.setAttribute("property", "og:description");
       document.head.appendChild(ogDescription);
     }
     ogDescription.content = pathRoute.description;
   }
-  
+
   container.classList.remove("content-visible");
   setTimeout(() => {
     fetch(page)
@@ -219,6 +259,9 @@ function loadPage(page) {
   }, 300);
 }
 
+// Lista progetti per routing dinamico
+const projectIds = ["cunda", "bioma", "paliano", "casale", "biassono", "vigasio", "agerola", "troisi"];
+
 window.initDetail = function iniDetail() {
   const nav = document.getElementById("nav");
   nav.classList.add("position-absolute", "w-100");
@@ -229,99 +272,143 @@ window.initDetail = function iniDetail() {
   nav.style.zIndex = 3;
 };
 
- // Consent Management - Allegato a window per funzionare con i caricamenti dinamici
-  const consentVersion = '1.0';
-  
-  window.initConsent = function() {
-    const savedConsent = localStorage.getItem('consentPreferences');
-    const banner = document.getElementById('consentBanner');
-    if (banner) {
-      if (!savedConsent) {
-        banner.style.display = 'block';
-      } else {
-        banner.style.display = 'none';
-        window.applyStoredConsent();
-      }
-    }
-  };
-
-  window.acceptConsent = function() {
-    const preferences = {
-      essential: true,
-      analytics: document.getElementById('analyticsCookies')?.checked || false,
-      marketing: document.getElementById('marketingCookies')?.checked || false,
-      timestamp: new Date().toISOString(),
-      version: consentVersion
-    };
+// Handle dynamic project URLs for SEO
+async function handleProjectRoute(projectId) {
+  try {
+    const response = await fetch(`details/${projectId}.json`);
+    currentProjectDetail = await response.json();
+    currentProjectDetail = { ...currentProjectDetail, id: projectId };
     
-    localStorage.setItem('consentPreferences', JSON.stringify(preferences));
-    const banner = document.getElementById('consentBanner');
-    if (banner) banner.style.display = 'none';
-    window.applyConsent(preferences);
-    window.showNotification('Preferenze salvate con successo');
-  };
-
-  window.rejectConsent = function() {
-    const preferences = {
-      essential: true,
-      analytics: false,
-      marketing: false,
-      timestamp: new Date().toISOString(),
-      version: consentVersion
-    };
+    // Update page title and meta
+    const projectTitle = currentProjectDetail.title || projectId;
+    document.title = `${projectTitle} | galleria`;
     
-    localStorage.setItem('consentPreferences', JSON.stringify(preferences));
-    const banner = document.getElementById('consentBanner');
-    if (banner) banner.style.display = 'none';
-    window.applyConsent(preferences);
-    window.showNotification('Cookie non essenziali rifiutati');
-  };
-
-  window.applyStoredConsent = function() {
-    const saved = localStorage.getItem('consentPreferences');
-    if (saved) {
-      const preferences = JSON.parse(saved);
-      window.applyConsent(preferences);
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
     }
-  };
-
-  window.applyConsent = function(preferences) {
-    if (!preferences.analytics && typeof gtag !== 'undefined') {
-      window['ga-disable-G-E6Z36QLMMB'] = true;
-    } else if (preferences.analytics && typeof gtag !== 'undefined') {
-      gtag('consent', 'update', {
-        'analytics_storage': 'granted'
-      });
-    }
-  };
-
-  window.scrollToTop = function() {
-    const content = document.querySelector('.privacy-content');
-    if (content) {
-      content.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  window.showNotification = function(message) {
-    if (typeof Toastify !== 'undefined') {
-      Toastify({
-        text: message,
-        backgroundColor: '#d4af37',
-        textColor: '#000',
-        duration: 2000,
-        close: true,
-        gravity: 'top',
-        position: 'center',
-      }).showToast();
-    } else {
-      alert(message);
-    }
-  };
-
-  // Inizializzare quando il DOM è pronto
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.initConsent);
-  } else {
-    // Se il script viene caricato dopo il DOMContentLoaded (come nei caricamenti dinamici)
-    setTimeout(window.initConsent, 100);
+    metaDescription.content = currentProjectDetail.longDescription?.substring(0, 160) || projectTitle;
+    
+    loadPage("detail.html");
+    window.initDetail();
+  } catch (error) {
+    console.error(`Error loading project ${projectId}:`, error);
+    loadPage("grid.html");
   }
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', (event) => {
+  const path = window.location.pathname.replace(/\//g, '').trim();
+  if (path && projectIds.includes(path)) {
+    handleProjectRoute(path);
+  } else if (event.state) {
+    const routeItem = route.find(r => r.href === event.state.href || r.page === event.state.page);
+    if (routeItem) {
+      loadPage(routeItem.page);
+    } else {
+      loadPage('grid.html');
+    }
+  } else {
+    loadPage('grid.html');
+  }
+});
+
+// Consent Management - Allegato a window per funzionare con i caricamenti dinamici
+const consentVersion = "1.0";
+
+window.initConsent = function () {
+  const savedConsent = localStorage.getItem("consentPreferences");
+  const banner = document.getElementById("consentBanner");
+  if (banner) {
+    if (!savedConsent) {
+      banner.style.display = "block";
+    } else {
+      banner.style.display = "none";
+      window.applyStoredConsent();
+    }
+  }
+};
+
+window.acceptConsent = function () {
+  const preferences = {
+    essential: true,
+    analytics: document.getElementById("analyticsCookies")?.checked || false,
+    marketing: document.getElementById("marketingCookies")?.checked || false,
+    timestamp: new Date().toISOString(),
+    version: consentVersion,
+  };
+
+  localStorage.setItem("consentPreferences", JSON.stringify(preferences));
+  const banner = document.getElementById("consentBanner");
+  if (banner) banner.style.display = "none";
+  window.applyConsent(preferences);
+  window.showNotification("Preferenze salvate con successo");
+};
+
+window.rejectConsent = function () {
+  const preferences = {
+    essential: true,
+    analytics: false,
+    marketing: false,
+    timestamp: new Date().toISOString(),
+    version: consentVersion,
+  };
+
+  localStorage.setItem("consentPreferences", JSON.stringify(preferences));
+  const banner = document.getElementById("consentBanner");
+  if (banner) banner.style.display = "none";
+  window.applyConsent(preferences);
+  window.showNotification("Cookie non essenziali rifiutati");
+};
+
+window.applyStoredConsent = function () {
+  const saved = localStorage.getItem("consentPreferences");
+  if (saved) {
+    const preferences = JSON.parse(saved);
+    window.applyConsent(preferences);
+  }
+};
+
+window.applyConsent = function (preferences) {
+  if (!preferences.analytics && typeof gtag !== "undefined") {
+    window["ga-disable-G-E6Z36QLMMB"] = true;
+  } else if (preferences.analytics && typeof gtag !== "undefined") {
+    gtag("consent", "update", {
+      analytics_storage: "granted",
+    });
+  }
+};
+
+window.scrollToTop = function () {
+  const content = document.querySelector(".privacy-content");
+  if (content) {
+    content.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+window.showNotification = function (message) {
+  if (typeof Toastify !== "undefined") {
+    Toastify({
+      text: message,
+      backgroundColor: "#d4af37",
+      textColor: "#000",
+      duration: 2000,
+      close: true,
+      gravity: "top",
+      position: "center",
+    }).showToast();
+  } else {
+    alert(message);
+  }
+};
+
+// Inizializzare quando il DOM è pronto
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", window.initConsent);
+} else {
+  // Se il script viene caricato dopo il DOMContentLoaded (come nei caricamenti dinamici)
+  setTimeout(window.initConsent, 100);
+}

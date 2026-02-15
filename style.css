@@ -371,7 +371,7 @@ a:hover {
 .footer {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
   border-top: 3px solid transparent;
-  /* border-image: linear-gradient(90deg, #d4af37 0%, #ffffff 50%, #d4af37 100%) 1; */
+  border-image: linear-gradient(90deg, #d4af37 0%, #ffffff 50%, #d4af37 100%) 1;
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
   padding: 2rem 0;
   margin-top: auto;

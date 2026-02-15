@@ -8,7 +8,7 @@
       <div class="projects-grid">
         <template x-for="project in item.projects">
           <article class="project-card">
-            <div class="project-image-container">
+            <div class="project-image-container" @click="cellClick(project)">
               <img :src="'docs/' + project.image" :alt="project.title + ' - ' + project.description" loading="lazy">
               <div class="image-overlay">
                 <h3 x-text="project.title"></h3>

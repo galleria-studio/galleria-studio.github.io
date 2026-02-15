@@ -214,6 +214,18 @@
         </div>
       </div>
     </div>
+
+    <!-- SEO Crawlable Links - Hidden from users but visible to search engines -->
+    <div style="display: none; position: absolute; height: 0; overflow: hidden;" aria-hidden="true">
+      <a href="/cunda" title="Progetto Il Maltese">Il Maltese - Furore</a>
+      <a href="/bioma" title="Progetto Bioma">Bioma - Napoli</a>
+      <a href="/paliano" title="Progetto Paliano">Nuovo plesso scolastico - Paliano</a>
+      <a href="/casale" title="Progetto Casale">Nuovo polo scolastico - Casal di Principe</a>
+      <a href="/biassono" title="Progetto Biassono">Nuova scuola primaria - Biassono</a>
+      <a href="/vigasio" title="Progetto Vigasio">Nuovo polo dell'infanzia - Vigasio</a>
+      <a href="/agerola" title="Progetto Agerola">Nuovo polo dell'infanzia - Agerola</a>
+      <a href="/troisi" title="Progetto Troisi">Scuola dell'infanzia Plesso Troisi - Pozzuoli</a>
+    </div>
   </footer>
 
   <!-- ... -->
@@ -224,8 +236,15 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
-      const path = sessionStorage.redirect;
-      const routeItem = route.find(r => r.href === path);
+      const path = sessionStorage.redirect || window.location.pathname.replace(/\//g, '');
+      
+      // Check if path is a project ID
+      if (path && projectIds.includes(path)) {
+        handleProjectRoute(path);
+        return;
+      }
+      
+      const routeItem = route.find(r => r.href === ('/' + path) || r.href === path);
       let page = 'grid.html'; // fallback: Home
       if (routeItem) {
         page = routeItem.page;
