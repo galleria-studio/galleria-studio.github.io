@@ -73,13 +73,6 @@
   </script>
 
   <title>galleria | studio di architettura</title>
-  <script type="text/javascript">
-    var _iub = _iub || [];
-    _iub.csConfiguration = { "siteId": 4192598, "cookiePolicyId": 29781792, "lang": "it", "storage": { "useSiteId": true } };
-  </script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4192598.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6Z36QLMMB"></script>
   <script>
@@ -125,6 +118,49 @@
 </head>
 
 <body class="">
+  <div class="consent-banner position-fixed w-100" style="z-index:9999" id="consentBanner">
+  <div class="consent-content">
+    <div class="consent-header">
+      <h3>🍪 Preferenze Cookie e Privacy</h3>
+      <p>Questo sito utilizza cookie e dati analitici. Scegli come preferisci che procediamo.</p>
+    </div>
+
+    <div class="consent-options">
+      <label class="consent-checkbox">
+        <input type="checkbox" id="essentialCookies" checked disabled>
+        <span class="checkbox-label">
+          <strong>Cookie Essenziali *</strong>
+          <small>Necessari per il funzionamento del sito (non disabilitabili)</small>
+        </span>
+      </label>
+
+      <label class="consent-checkbox">
+        <input type="checkbox" id="analyticsCookies" checked>
+        <span class="checkbox-label">
+          <strong>Cookie Analitici</strong>
+          <small>Google Analytics per comprendere il comportamento degli utenti</small>
+        </span>
+      </label>
+
+      <label class="consent-checkbox">
+        <input type="checkbox" id="marketingCookies">
+        <span class="checkbox-label">
+          <strong>Cookie Marketing</strong>
+          <small>Per raccomandazioni personalizzate (attualmente non utilizziamo)</small>
+        </span>
+      </label>
+    </div>
+
+    <div class="consent-buttons">
+      <button class="btn-consent btn-reject" onclick="rejectConsent()">Rifiuta tutto</button>
+      <button class="btn-consent btn-accept" onclick="acceptConsent()">Accetta scelte</button>
+    </div>
+
+    <p class="consent-footer">
+      <small>Leggi la <a href="#" onclick="scrollToTop()">privacy policy completa</a> per dettagli su come usiamo i tuoi dati.</small>
+    </p>
+  </div>
+</div>
   <nav class="navbar navbar-expand-lg bg-transparent" id="nav">
     <div class="container-fluid">
       <!-- Logo a sinistra -->
@@ -159,23 +195,22 @@
   <div id="content" class="container-fluid content-transition" style="min-height: 79%;">
   </div>
   <footer id="footer" class="footer navbar-fixed-bottom mt-4">
-    <div class="container-fluid d-flex bg-dark justify-content-between">
+    <div class="container-fluid d-flex bg-dark justify-content-between align-items-center">
       <!-- Logo a sinistra -->
-      <a class="navbar-brand align-self-center d-flex" href="/" title="galleria - Home">
+      <a class="navbar-brand align-self-center d-flex" href="/" title="galleria - Home" onclick="loadPage('grid.html'); return false;">
         <div class="logo bg-dark m-0 align-self-center"><span class="align-self-center">galleria</span>
         </div>
       </a>
 
-
-      <div class="justify-content-end text-white text-jup">
-        <div class="text-end">
-          <strong>contatti</strong>
-        </div>
-        <a href="mailto:info@gallerriastudio.it" class="text-white fw-bold">info@gallerriastudio.it</a>
-        <div class="d-flex g-2 justify-content-end mt-2">
-          <a href="https://www.instagram.com/galleria_studio_napoli" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram"><i class="fa-brands fa-square-instagram"></i></a>
-          <a href="https://www.facebook.com/galleria.studio" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Facebook"><i class="fa-brands fa-square-facebook"></i></a>
-          <a href="https://www.linkedin.com/company/galleria-studio" target="_blank" rel="noopener noreferrer" aria-label="Seguici su LinkedIn"><i class="fa-brands fa-square-linkedin"></i></a>
+      <!-- Contatti e Social -->
+      <div class="justify-content-end text-white text-jup d-flex flex-column align-items-end gap-2">
+        <strong>contatti</strong>
+        <a href="mailto:info@gallerriastudio.it" class="text-white">info@gallerriastudio.it</a>
+        <a href="/privacy" onclick="loadPage('privacy.html'); return false;" class="text-white footer-privacy-link" style="font-size: 0.85rem; opacity: 0.8;">Privacy Policy</a>
+        <div class="d-flex gap-3 justify-content-end mt-2">
+          <a href="https://www.instagram.com/galleriastudioarchitettura" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram"><i class="fa-brands fa-square-instagram text-white"></i></a>
+          <!-- <a href="https://www.facebook.com/galleria.studio" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Facebook"><i class="fa-brands fa-square-facebook text-white"></i></a>
+          <a href="https://www.linkedin.com/company/galleria-studio" target="_blank" rel="noopener noreferrer" aria-label="Seguici su LinkedIn"><i class="fa-brands fa-square-linkedin text-white"></i></a> -->
         </div>
       </div>
     </div>
