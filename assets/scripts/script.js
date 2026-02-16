@@ -112,7 +112,7 @@ function hideAndShow() {
 function submitForm(event) {
   event?.preventDefault();
   const form = document.querySelector("form");
-  const contactBtn = document.querySelector("form .contact-btn");
+  const contactBtn = document.querySelector("form .submit-btn");
   const formData = new FormData(form);
 
   contactBtn.disabled = true;
